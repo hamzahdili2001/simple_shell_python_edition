@@ -1,12 +1,22 @@
 """All function that runs command or execute command are here"""
+from os import error
 import subprocess
 from .external_commands import *
+from colorama import init, Fore
+
+init()
 
 # TODO: add all the commands needed
 external_commands = {
     "cd": cd_command,
     "exit": exit_command,
 }
+
+
+# TODO: move this to a proper file for handing output.
+def errors(error, msg):
+    """Function that handles errors"""
+    print(f"{Fore.RED} {error}: {msg} {Fore.RESET}")
 
 
 def run(command):
@@ -28,18 +38,17 @@ def run(command):
                 shell=True,
             )
     except subprocess.CalledProcessError as e:
-        print(f"Error: {e}")
+        errors(command_name, e)
     except subprocess.SubprocessError as e:
-        print(f"Error: {e}")
+        errors(command_name, e)
     except (KeyboardInterrupt, EOFError):
         sys.exit(0)
     except FileNotFoundError:
-        print(f"{command_name}: the command does not exist.")
-
+        errors(command_name, "The command does not exist")
     if command_name in external_commands:
         external_commands[command_name](command_args)
     elif internal_command is not None:
         print(internal_command.stdout)
     else:
         # TODO: add some propter message.
-        print("error!!!")
+        pass
