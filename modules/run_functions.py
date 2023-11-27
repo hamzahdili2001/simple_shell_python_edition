@@ -18,11 +18,14 @@ def run(command):
     try:
         if command_name not in external_commands:
             internal_command = subprocess.run(
-                command,
+                # INFO: using string command with 'shell=True'
+                # may lead to  shell injection vulnerabilities.
+                " ".join(map(str, command)),
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
                 text=True,
                 check=True,
+                shell=True,
             )
     except subprocess.CalledProcessError as e:
         print(f"Error: {e}")
