@@ -2,12 +2,16 @@
 
 import os
 import re
+import sys
 
 
 def getline():
     """Function that shows the prompt"""
     cwd = os.getcwd()
-    line = input(f"{cwd} -> ")
+    try:
+        line = input(f"{cwd} -> ")
+    except (EOFError, KeyboardInterrupt):
+        sys.exit(0)
 
     return line
 

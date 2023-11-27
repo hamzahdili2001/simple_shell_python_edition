@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+"""Main program"""
 from modules.prompt_functions import *
 from modules.external_commands import *
 from modules.run_functions import *
@@ -14,7 +14,7 @@ def main():
         if not command:
             continue
 
-        run_external_commands(command)
+        run(command)
 
 
 if __name__ == "__main__":
