@@ -5,6 +5,7 @@ import re
 import sys
 
 
+# TODO: add auto complition for the commands using: readline ;)
 def getline():
     """Function that shows the prompt"""
     cwd = os.getcwd()
