@@ -17,8 +17,3 @@ def cd_command(args):
 def exit_command(args):
     """Function that exits the shell"""
     sys.exit(args[0] if args else 0)
-
-
-def pwd_command(args):
-    """Function that gets the current working directory and print it"""
-    print(os.getcwd())
