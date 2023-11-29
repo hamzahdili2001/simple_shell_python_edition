@@ -15,7 +15,7 @@ def main():
         run_from_file()
     else:
         readline.set_completer(auto_complete)
-        readline.parse_and_bind("tab: complete")
+        readline.parse_and_bind("ctrl: complete")
 
         while True:
             line = getline()

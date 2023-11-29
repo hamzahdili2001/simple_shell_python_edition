@@ -23,7 +23,7 @@ def auto_complete(text, state):
 
     # Create a list of formatted strings for each command and description
     formatted_options = [
-        f"{item['command']} {' ' * (max_command_length - len(item['command']))} {item['description']}"
+        f"{item['command']} {' ' * (max_command_length - len(item['command']))} ({item['description']})"
         for item in options
     ]
 

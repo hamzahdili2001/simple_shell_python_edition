@@ -1,0 +1,4 @@
+colorama==0.4.6
+prompt-toolkit==3.0.41
+readline==6.2.4.1
+wcwidth==0.2.12

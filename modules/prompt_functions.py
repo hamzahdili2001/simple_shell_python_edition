@@ -3,19 +3,21 @@
 import os
 import re
 import sys
-from colorama import init, Fore
-
-
-init()
+from .suggestions import suggestions
+from prompt_toolkit import prompt
 
 
 # TODO: add auto complition for the commands using: readline ;)
 def getline():
     """Function that shows the prompt"""
     cwd = os.getcwd()
+
+    prompt_str = f"{cwd} -> "
     try:
-        line = input(
-            f"{Fore.YELLOW}{cwd}{Fore.RESET} {Fore.BLUE}->{Fore.RESET} "
+        line = prompt(
+            prompt_str,
+            completer=suggestions(),
+            complete_while_typing=True,
         )
     except (EOFError, KeyboardInterrupt):
         sys.exit(0)
