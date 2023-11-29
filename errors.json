@@ -1,0 +1,14 @@
+[
+  {
+    "127": "%1$: command not found"
+  },
+  {
+    "126": "%1$: Permission denied"
+  },
+  {
+    "2": "%1$: cannot access '%2$': No such file or directory"
+  },
+  {
+    "1": "%1$: %2$: No such file or directory"
+  }
+]
