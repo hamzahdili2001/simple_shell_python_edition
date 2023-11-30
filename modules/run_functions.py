@@ -32,13 +32,13 @@ def run(command):
                 shell=True,
             )
     except subprocess.CalledProcessError as e:
-        errors(command_name, e)
+        errors(command_name, command_args, e)
     except subprocess.SubprocessError as e:
-        errors(command_name, e)
+        errors(command_name, command_args, e)
     except (KeyboardInterrupt, EOFError):
         sys.exit(0)
     except FileNotFoundError:
-        errors(command_name, "The command does not exist")
+        errors(command_name, command_args, "The command does not exist")
     if command_name in external_commands:
         external_commands[command_name](command_args)
     elif internal_command is not None:
