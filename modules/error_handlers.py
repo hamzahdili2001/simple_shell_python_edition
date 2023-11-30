@@ -23,7 +23,7 @@ def errors(error, command_args: str, msg: str):
                 if len(option) > 0:
                     for opt in option:
                         message = ERRORS[len(
-                            ERRORS) - 1].output.replace("%1$",  "'" + opt[1:2] + "'")
+                            ERRORS) - 1].output.replace("%1$", error).replace("%2$", "'" + opt[1:2] + "'")
                         print(f"{Fore.RED} {message} {Fore.RESET}")
                         error_found = True
                         break
@@ -62,7 +62,7 @@ def get_option_if_any(name: str, command_args: list) -> list[str] | None:
     try:
         if len(temp) > 0:
             subprocess.check_call([name, " ".join(temp)],
-                                  stdout=subprocess.DEVNULL)
+                                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNUL)
     except Exception:
         return (temp)
 
@@ -74,7 +74,7 @@ def get_command_argument_if_any(command_args: list) -> list[str] | None:
     result = []
 
     for command in command_args:
-        if not command.startswith('-') or (command == '-' and len(command) == 1):
+        if not command.startswith('-') or len(command) == 1:
             result.append(command)
 
     return (result)
