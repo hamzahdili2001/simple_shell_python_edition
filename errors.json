@@ -1,0 +1,27 @@
+[
+  {
+    "code": "127",
+    "output": "%1$: command not found",
+    "message": "command not found"
+  },
+  {
+    "code": "126",
+    "output": "%1$: Permission denied",
+    "message": "Permission denied"
+  },
+  {
+    "code": "2",
+    "output": "%1$: cannot access '%2$': No such file or directory",
+    "message": "cannot access :"
+  },
+  {
+    "code": "1",
+    "output": "%1$: %2$: No such file or directory",
+    "message": "No such file or directory"
+  },
+  {
+    "code": "2",
+    "output": "Invalid option -- %1$",
+    "message": "Invalid option"
+  }
+]
