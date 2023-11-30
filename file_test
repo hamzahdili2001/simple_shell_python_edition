@@ -1,0 +1,9 @@
+echo "Hamza"
+ls
+ls -la
+pwd
+cd modules
+pwd
+#this is a comment
+makeerror
+exit 1
