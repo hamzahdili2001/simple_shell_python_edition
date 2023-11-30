@@ -3,6 +3,7 @@ from os import error
 import subprocess
 from .external_commands import *
 from colorama import init, Fore
+from .file_support import handle_file_argument
 
 init()
 
@@ -52,3 +53,14 @@ def run(command):
     else:
         # TODO: add some propter message.
         pass
+
+
+def run_from_file():
+    """run a list of commands comes form a file"""
+    commands = handle_file_argument()
+    if commands == -1:
+        return -1
+    for command in commands:
+        command = command.split(" ")  # make the command an array again
+        run(command)
+    return 0

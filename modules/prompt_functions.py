@@ -3,6 +3,10 @@
 import os
 import re
 import sys
+from colorama import init, Fore
+
+
+init()
 
 
 # TODO: add auto complition for the commands using: readline ;)
@@ -10,7 +14,9 @@ def getline():
     """Function that shows the prompt"""
     cwd = os.getcwd()
     try:
-        line = input(f"{cwd} -> ")
+        line = input(
+            f"{Fore.YELLOW}{cwd}{Fore.RESET} {Fore.BLUE}->{Fore.RESET} "
+        )
     except (EOFError, KeyboardInterrupt):
         sys.exit(0)
 
