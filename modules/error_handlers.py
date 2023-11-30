@@ -62,7 +62,7 @@ def get_option_if_any(name: str, command_args: list) -> list[str] | None:
     try:
         if len(temp) > 0:
             subprocess.check_call([name, " ".join(temp)],
-                                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNUL)
+                                  stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     except Exception:
         return (temp)
 
